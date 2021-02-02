@@ -1,51 +1,65 @@
 var inputNums = "";
 var currentPIN;
-var randomGenerator = function(){
-    var random = Math.floor(Math.random() * (9999- 1001) + 1000);
-    currentPIN = random;
-    showinBox(generateBox, random);
+var randomGenerator = function () {
+    var random = Math.floor(Math.random() * (9999 - 1001) + 1000);
+    currentPIN = random.toString();
+    showinBox(generateBox, currentPIN);
 }
-function showinBox(Box, value){
-    if(incorrectInfo.style.display != "none"){
+function showinBox(Box, value) {
+    if (incorrectInfo.style.display != "none") {
         incorrectInfo.style.display = "none";
     }
     // console.log(value);
     Box.value = value;
 }
-var numClicked = function(){
-    if(inputNums.length == 4){
+function showCorrectness() {
+    var inputtedVal = inputBox.value;
+    var intlength = inputtedVal.length;
+    for(var i = 0; i < intlength ; i++){
+        if(inputtedVal[i] != currentPIN[i]){
+            inputBox.style.border = "2px solid red";
+            return ;
+        }
+    }
+    inputBox.style.border = "2px solid rgb(116, 231, 100)";
+}
+var numClicked = function () {
+    if (inputNums.length == 4) {
         return;
     }
     inputNums += this.innerText;
     showinBox(inputBox, inputNums);
+    showCorrectness();
 }
-var deleteOneCha = function(){
+var deleteOneCha = function () {
     inputNums = inputNums.slice(0, -1);
     // console.log(inputNums);
     showinBox(inputBox, inputNums);
+    showCorrectness();
 }
-var deleteAllNums = function(){
+var deleteAllNums = function () {
     inputNums = "";
     showinBox(inputBox, inputNums);
+    inputBox.style.border = "inherit";
 }
-var submitted = function(){
-    if(currentPIN == inputNums){
+var submitted = function () {
+    if (currentPIN == inputNums) {
         sectionRandom.style.display = "none";
         sectionInput.style.display = "none";
         correctInfo.style.display = "block";
     }
-    else{
+    else {
         incorrectInfo.style.display = "block";
         inputNums = "";
         inputBox.value = "";
     }
 }
-var playAgain = function(){
+var playAgain = function () {
     sectionRandom.style.display = "inherit";
     location.reload();
 }
 var generatePIN = document.getElementsByClassName("btn-pin")[0];
-var nums= document.getElementsByClassName("num");
+var nums = document.getElementsByClassName("num");
 var deleteOne = document.getElementById("del");
 var deleteAll = document.getElementById("clear");
 var submitBtn = document.getElementById("submit");
@@ -61,7 +75,7 @@ deleteOne.addEventListener("click", deleteOneCha);
 deleteAll.addEventListener("click", deleteAllNums);
 submitBtn.addEventListener("click", submitted);
 playAgainbtn.addEventListener("click", playAgain);
-for( var i = 0 ; i < nums.length ; i++){
+for (var i = 0; i < nums.length; i++) {
     var singlenum = nums[i];
     singlenum.addEventListener("click", numClicked);
 }

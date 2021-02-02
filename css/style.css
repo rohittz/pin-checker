@@ -3,6 +3,7 @@ html{
 }
 body{
     font-family: 'Roboto Mono', monospace;
+    margin:0px;
 }
 a{
     text-decoration:none;
@@ -31,7 +32,7 @@ nav{
 }
 .show-box > input{
     background-color:rgb(224, 224, 224);
-    border:1px solid rgb(74, 88, 119);
+    border:inherit;
     color:rgb(78, 78, 78);
     padding:8px 5px;
     font-family: inherit;
