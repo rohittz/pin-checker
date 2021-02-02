@@ -1,11 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pin checker</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <h1>Pin checker</h1>
+    <header>
+        <nav>
+            <h1>Pin checker</h1>
+        </nav>
+    </header>
+    <main>
+        <section class="main-content">
+            <section class="random-generator">
+                <div class="show-box">
+                    <input type="text" class="input-box" id="gen-PIN" placeholder="****">
+                </div>
+                <div class="btn-pin">
+                    <div class="generate">
+                        Generate Pin
+                    </div>
+                </div>
+            </section>
+            <section class="input-pin">
+                <div class="show-box">
+                    <input type="text" id="input-num" class="input-box" placeholder="****">
+                </div>
+                <div class="button-group">
+                    <div class="all-buttons">
+                        <a href="#">
+                            <div class="num">0</div>
+                        </a>
+                        <a href="#">
+                            <div class="num">1</div>
+                        </a> <a href="#">
+                            <div class="num">2</div>
+                        </a> <a href="#">
+                            <div class="num">3</div>
+                        </a> <a href="#">
+                            <div class="num">4</div>
+                        </a> <a href="#">
+                            <div class="num">5</div>
+                        </a> <a href="#">
+                            <div class="num">6</div>
+                        </a> <a href="#">
+                            <div class="num">7</div>
+                        </a> <a href="#">
+                            <div class="num">8</div>
+                        </a> <a href="#">
+                            <div class="num">9</div>
+                        </a>
+                        <a href="#">
+                            <div id="del">
+                                <i class="fas fa-backspace"></i></div>
+                        </a>
+                        <a href="#">
+                            <div id = "clear"><i class="fas fa-trash-alt"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="submit-btn">
+                    <div id="submit">Submit</div>
+                </div>
+            </section>
+            <section class="validation">
+                <div id="correct">
+                    Well Done! Your pin is correct!
+                </div>
+                <div id="incorrect">
+                    Try Again!
+                </div>
+            </section>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
+
 </html>
